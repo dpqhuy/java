@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +21,8 @@ public class Employee {
 	private double salary;
 	private String deg;
 	
+	@OneToOne
+	private Department department;
 	
 	public Employee(int eid, String ename, double salary, String deg) {
 		super();
@@ -65,6 +68,14 @@ public class Employee {
 		this.deg = deg;
 	}
 	
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
 	@Override
 	public String toString() {
 		 return "Employee [eid=" + eid + ", ename=" + ename + ", salary=" + salary + ", deg=" + deg + "]";
